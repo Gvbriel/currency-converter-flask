@@ -85,7 +85,7 @@ def datesplit(date):
     list = [int(n) for n in dateD]
     return list
 
-@app.route('/', methods=["POST","GET"])
+@app.route('/index', methods=["POST","GET"])
 def home():
 
     if request.method == "POST":
