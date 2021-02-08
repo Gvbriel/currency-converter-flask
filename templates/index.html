@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block title %}Currency converter{% endblock %}
+
+
+{% block content %}
+    <div class="mx-auto" style="width: 400px; margin: 30px">
+
+    <form action="#" method="post">
+
+        <label> From currency:</label>
+        <select name="fromcurrencies" id="fromcurrencies" onchange="submit">
+
+        {% for currency in currencyList %}
+            <option value={{ currency }}>{{ currency }}</option>
+        {% endfor %}
+
+        </select>
+
+        <label> To currency:</label>
+        <select name="tocurrencies" id="tocurrencies">
+
+        {% for currency in currencyList %}
+            <option value={{ currency }}>{{ currency }}</option>
+        {% endfor %}
+
+        </select>
+        <p><input type="submit" name="submit" value="selectcurrencies"></p>
+
+
+    </form>
+
+    <form action="#" method="post">
+        <input type="hidden" name="fromCur" value={{ fromCur }}>
+        <input type="hidden" name="toCur" value={{ toCur }}>
+        <p>{{ fromCur }} to {{ toCur }}</p>
+        <label for="currency">Select day:</label>
+        <input type="date" id="currency" name="pricedate" value="" min={{ mindate }} max={{ maxdate }}>
+
+        <br>
+        <p>Current price for 1 {{ priceCur }}: {{ priceCurValue }}</p>
+        <p>Amount:</p>
+        <p><input type="text" name="amount" value="0"></p>
+        <p><input type="submit" name="submit" value="convert"></p>
+    </form>
+
+    <p>Converted amount: {{ usd }} {{ conv }}</p>
+    </div>
+{% endblock %}
